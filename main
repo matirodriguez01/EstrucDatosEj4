@@ -1,0 +1,25 @@
+from ClasePila import Pila
+
+if __name__== '__main__':
+    num = int(input("Ingrese el tamaño de la pila: "))
+    bandera = True
+    opcion = 1
+    pila1 = Pila(num)
+    pila1.mostrar()
+    opcion = int(input("1-Apilar, 2-Desapilar o 0-Cerrar: "))
+    while opcion != 0:
+        if opcion == 1:
+            pila = int(input("Ingrese el numero de pila donde desea apilar"))
+            x = int(input("Ingrese el numero a apilar"))
+            pila1.apilar(x, pila)
+            pila1.mostrar()
+
+        elif opcion == 2:
+            pila = int(input("Ingrese el numero de pila donde desea desapilar"))
+            pila1.desapilar(pila)
+            pila1.mostrar()
+        else:
+            opcion = int(input("Ingrese una opción válida: "))
+        opcion = int(input("1-Apilar, 2-Desapilar o 0-Cerrar: "))
+
+
