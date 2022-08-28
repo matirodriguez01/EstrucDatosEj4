@@ -1,0 +1,51 @@
+import numpy as np
+
+class Pila:
+    __items = None
+    __tope1 = None
+    __tope2 = None
+    __tamano = None
+
+    def __init__(self, num):
+        """ Crea una pila vacía. """
+        self.__items = np.zeros(num)
+        self.__tope1 = 0
+        self.__tope2 = num-1
+        self.__tamano = num
+
+    def apilar(self, x, pila):
+        """ Agrega el elemento x a la pila. """
+        if self.__tope1 <= self.__tope2:
+            if pila == 1:
+                self.__items[self.__tope1] = x
+                self.__tope1 += 1
+            else:
+                self.__items[self.__tope2] = x
+                self.__tope2 -= 1
+        else:
+            print("Error, pila llena")
+
+    def desapilar(self, pila):
+        """"" Devuelve el elemento tope y lo elimina de la pila."""
+        if pila == 1:
+            if self.__tope1 == 0:
+                print("La pila 1 esta vacia")
+            else:
+                self.__items[self.__tope1-1] = 0
+                self.__tope1 -= 1
+        else:
+            if self.__tope2 +1 == self.__tamano:
+                print("La pila 2 esta vacia")
+            else:
+                self.__items[self.__tope2+1] = 0
+                self.__tope2 += 1
+
+    def es_vacia(self):
+        """ Devuelve True si la lista está vacía, False si no. """
+        bandera = True
+        if self.__tope != 0:
+            bandera = False
+        return bandera
+
+    def mostrar(self):
+        print(self.__items)
